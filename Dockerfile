@@ -110,4 +110,5 @@ COPY root /
 CMD ["start"]
 STOPSIGNAL SIGTERM
 EXPOSE 80
+VOLUME ["/var/www/html"]
 HEALTHCHECK CMD curl -fIsS http://localhost/ || exit 1
