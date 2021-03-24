@@ -57,6 +57,7 @@ RUN set -ex; \
     # Clean up
     apk del .build-deps; \
     rm -rf /tmp/pear /var/cache/apk/*
+VOLUME ["/var/www/html"]
 # DO NOT FORGET TO UPDATE "tags" FILE
 ENV OSTICKET_VERSION=1.15.2 \
     OSTICKET_SHA256SUM=83c435956f3975eefcc001152ce848bf00f26cdc97305e312b7653d6f843a252
@@ -110,5 +111,4 @@ COPY root /
 CMD ["start"]
 STOPSIGNAL SIGTERM
 EXPOSE 80
-VOLUME ["/var/www/html"]
 HEALTHCHECK CMD curl -fIsS http://localhost/ || exit 1
